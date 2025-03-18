@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Layout</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            height: 400px;
+        }
+        td {
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid black;
+        }
+        .black { background-color: black; color: white; }
+        .red { background-color: red; }
+        .green { background-color: rgb(41, 255, 34); }
+        .blue { background-color: blue; color: black; }
+        .yellow { background-color: yellow; }
+    </style>
+</head>
+<body> 
+    <table>
+        <tr>
+            <td class="blue" colspan="4">A</td>
+            <td class="yellow" rowspan="4">D</td>
+        </tr>
+        <tr>
+            <td class="yellow" rowspan="4">G</td>
+            <td class="red" colspan="2">B</td>
+            <td class="green" rowspan="2">C</td>
+        </tr>
+        <tr>
+            <td class="green" rowspan="2">F</td>
+            <td class="black">X</td>
+        </tr>
+        <tr>
+            <td class="red" colspan="2">E</td>
+        </tr>
+        <tr>
+            <td class="blue" colspan="4">H</td>
+        </tr>
+    </table>
+</body>
+</html>
