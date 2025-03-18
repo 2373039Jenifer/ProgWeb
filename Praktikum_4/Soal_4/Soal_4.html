@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounded Box</title>
+    <style>
+        body {
+            background-color: #7C0A02; /* Warna latar belakang sesuai contoh */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            position: relative;
+            width: 170px;
+            padding: 10px 30px 25px 20px; /* Kurangi padding kiri agar teks lebih ke kiri */
+            color: white;
+            background-color: #6b1313a5;
+            background-image: url('box_bg.gif');
+            background-repeat: repeat;
+            text-align: left; /* Pastikan teks rata kiri */
+        }
+        
+        /* Menambahkan sudut bulat dari gambar */
+        .box-tl, .box-tr, .box-bl, .box-br, .box-l, .box-r, .box-t, .box-b {
+            position: absolute;
+            z-index: 5;
+        }
+        .box-tl {
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: url('box_tl.gif') no-repeat;
+        }
+        .box-tr {
+            top: 0;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: url('box_tr.gif') no-repeat;
+        }
+        .box-bl {
+            bottom: -6px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: url('box_bl.gif') no-repeat;
+        }
+        .box-br {
+            bottom: -6px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background: url('box_br.gif') no-repeat;
+        }
+        .box-l {
+            top: 10px;
+            left: 0;
+            width: 20px;
+            height: calc(104% - 30px);
+            background: url('box_l.gif') repeat-y;
+        }
+        .box-r {
+            top: 10px;
+            right: 0;
+            width: 10px;
+            height: calc(104% - 30px);
+            background: url('box_r.gif') repeat-y;
+        }
+        .box-t {
+            top: 0;
+            left: 10px;
+            width: calc(105% - 30px);
+            height: 20px;
+            background: url('box_t.gif') repeat-x;
+        }
+        .box-b {
+            bottom: -6px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: 20px;
+            background: url('box_b.gif') repeat-x;
+        }
+
+        a {
+            display: block;
+            text-align: right;
+            color: yellow;
+            text-decoration: none;
+            margin-top: 30px;
+        }
+
+        a:hover {
+            color: green;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box-tl"></div>
+        <div class="box-tr"></div>
+        <div class="box-bl"></div>
+        <div class="box-br"></div>
+        <div class="box-l"></div>
+        <div class="box-r"></div>
+        <div class="box-t"></div>
+        <div class="box-b"></div>
+        <h3>12.02.2011</h3>
+        <p>
+            Satu per satu para pesaing Manchester United mulai menunjukkan tanda-tanda "menyerah". Kini tinggal..
+        </p>
+        <a href="#">more</a>
+    </div>
+</body>
+</html>
