@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Menu</title>
+    <script>
+        function updateFrame(frameId, color) {
+            parent.mainFrame.document.getElementById(frameId).style.backgroundColor = color;
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+            margin: 60px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="updateFrame('frame1', 'Red')">Red</button>
+        <button onclick="updateFrame('frame2', 'green')">Green</button>
+    </div>
+</body>
+</html>

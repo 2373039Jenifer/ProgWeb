@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Left Menu</title>
+    <script>
+        function updateFrame(frameId, color) {
+            parent.mainFrame.document.getElementById(frameId).style.backgroundColor = color;
+        }
+    </script>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+<div class="button-container">
+</head>
+<body>
+    <button onclick="updateFrame('frame1', 'Gray')">Gray</button>
+    <button onclick="updateFrame('frame3', 'Black')">Black</button>
+</body>
+</html>
