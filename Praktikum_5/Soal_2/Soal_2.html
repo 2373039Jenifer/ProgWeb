@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Circles</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            width: 200px;
+            height: 100px;
+        }
+        .circle {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+        .circle.middle {
+            z-index: 3;
+            left: 50px;
+        }
+        .circle.left,
+        .circle.right {
+            z-index: 2;
+        }
+        .circle.left {
+            left: 0;
+        }
+        .circle.right {
+            left: 100px;
+        }
+        .circle-half {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            z-index: 4;
+        }
+        .circle-half.left {
+            left: 0;
+        }
+        .circle-half.right {
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="circle-red.png" class="circle left" alt="Red Circle Left">
+        <img src="circle-red.png" class="circle right" alt="Red Circle Right">
+        <img src="circle-purple.png" class="circle middle" alt="Purple Circle Middle">
+        <img src="circle-red-half.png" class="circle-half left" alt="Red Half Circle Left">
+        <img src="circle-red-half.png" class="circle-half right" alt="Red Half Circle Right">
+    </div>
+</body>
+</html>
