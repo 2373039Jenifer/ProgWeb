@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=620, initial-scale=1.0">
+    <title>The Truth About Elephants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 620px;
+            margin: auto;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: white;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+        }
+        .header .title {
+            text-align: center;
+            font-size: 25px;
+            background-color: yellow;
+            padding: 22px;
+        }
+        .banner {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4169E1;
+            padding: 5px;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 120px;
+            background: url('bg_sea.png') no-repeat center center;
+            background-size: cover;
+            padding: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 400px;
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: underline;
+        }
+        .content {
+            display: flex;
+            flex-grow: 1;
+            padding: 10px;
+            background-color: white;
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #4169E1;
+            width: 500px;
+        }
+        .main-text {
+            width: 340px;
+        }
+        .image-box {
+            width: 200px;
+            text-align: center;
+        }
+        .image-box img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .caption {
+            background-color: #4169E1;
+            color: white;
+            font-size: 12px;
+            padding: 5px;
+        }
+        .footer {
+            display: flex;
+            background-color: #4169E1;
+            font-size: 12px;
+            color: rgb(1, 1, 1);
+            padding: 3px 10px;
+            height: 20px;
+            width: 81%;  
+            margin-left: auto;
+            justify-content: right; 
+            align-items: right; 
+        }
+        .new-paragraph {
+            display: block;
+            margin-top:5px;
+            width: 150%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div><img src="logo_zoo.png" alt="Zoo Logo" width="120"></div>
+        <div class="title">Having trouble putting your little gorilla to bed?</div>
+        <div><img src="lion.png" alt="Lion" width="160"></div>
+    </div>
+    
+
+    <div class="banner"><strong>The Truth About Elephants</strong></div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Lions</a></li>
+                <li><a href="#">Armadillos</a></li>
+                <li><a href="#">Hyenas</a></li>
+                <li><a href="#">Elephants</a></li>
+                <li><a href="#">Giraffes</a></li>
+                <li><a href="#">Gorillas</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="main-text">
+                <p>It's hard to tell what goes through a baby elephant's mind when its mom is trying to put it to sleep. Do you think baby elephants wake up in the middle of the night and cry? Do their moms and dads take turns getting up with them to rock them back to sleep? How do you rock an elephant, anyway?
+                <br>
+                <br>
+                <p>    And what about gorillas? Today in the paper there's a story about a new gorilla that was just born in Franklin Park. Its mom is holding on to it
+                    <span class="new-paragraph">
+ 
+                    just like any proud human mom. And I have to wonder if they go through as much trauma as that human mom when it comes to sleep, food, and diapers, and running into the street.  
+                    <br>
+                    <br>
+                    Why is it so easy for them? Are they better parents? Do they just not worry about every little detail? I've never known a gorilla to read and study carefully seventeen books on bringing up baby gorillas. And they seem to know just what to do. They never worry about spoiling their little gorilla babies. They never worry about not having enough time with them. Now, don’t get me wrong, I’d rather be human than a gorilla any day. Just imagine having to sit in a zoo. Forget discrete nursing... (Did you figure out yet that while gorillas were on my mind, I could only find a picture of the elephant?
+                </span>
+            </div>
+
+            <div class="image-box">
+                <img src="elephant.png" alt="Elephant">
+                <div class="caption">A baby elephant hangs out with its mom, aunts and great aunts, and maybe even its grandmother.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Copyright &copy; 2002 Northampton Zoological Society, Inc.
+    </div>
+</body>
+</html>
