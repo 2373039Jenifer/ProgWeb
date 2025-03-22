@@ -1,0 +1,42 @@
+body {
+    background: #3A0404 url('page_bg.jpg') repeat-x;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#nav {
+    position: absolute;
+    top: 0px;
+    width: 500px;
+}
+
+#nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#nav li {
+    float: left;
+    background: url('nav_left.gif') no-repeat;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 40px;
+    line-height: 1.1;
+}
+
+#nav span {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#nav a {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+}
