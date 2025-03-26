@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Bilangan</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        .container {
+            display: inline-block;
+            border: 1px solid gray;
+            padding: 3px;
+            background-color: white;
+        }
+        .box {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            margin: 5px;
+            width: 350px;
+            background-color: white;
+        }
+        .label-box {
+            border: 1px solid gray;
+            padding: 5px;
+            width: 90px;
+            text-align: right;
+            color: blue;
+            background-color: white;
+            margin-right: 4px;
+        }
+        .input-box {
+            border: 1px solid gray;
+            padding: 2px;
+            width: 380px;
+            background-color: white;
+            display: flex;
+            justify-content: left;
+        }
+        input, select {
+            width: 90%;
+            text-align: left;
+            font-size: 16px;
+            padding: 3px;
+            border: 1px solid rgb(186, 184, 184);
+            background-color: white;
+        }
+        select {
+            cursor: pointer;
+        }
+        input[readonly] {
+            background-color: #f0f0f0;
+            color: gray;
+        }
+        .select-box {
+            border: 1px solid gray;
+            padding: 5px;
+            width: 380px;
+            display: flex;
+            justify-content: center; 
+        }
+        .button-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            padding: 3px;
+            border: 1px solid gray;
+            background-color: white;
+        }
+        button {
+            cursor: pointer;
+            border: 1px solid gray;
+            padding: 5px 15px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-proses {
+            color: blue;
+            border: 1px solid gray;
+        }
+        .btn-reset {
+            color: blue;
+            border: 1px solid gray;
+        }
+        .btn-proses:hover {
+            border: 1px solid aqua;
+            box-shadow: 0 0 2px blue;
+        }
+        .btn-reset:hover {
+            border: 1px solid aqua;
+            box-shadow: 0 0 2px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="label-box">Input :</div>
+            <div class="input-box">
+                <input type="text" id="input">
+            </div>
+        </div>
+        <div class="box">
+            <div class="label-box">Output :</div>
+            <div class="input-box">
+                <input type="text" id="output" readonly>
+            </div>
+        </div>
+        <div class="box">
+            <div class="select-box">
+                <select id="conversionType">
+                    <option value="decimal-binary">decimal-biner</option>
+                    <option value="binary-decimal">biner-decimal</option>
+                </select>
+            </div>
+        </div>
+        <div class="button-box">
+            <button class="btn-proses" onclick="convert()">PROSES</button>
+            <button class="btn-reset" onclick="resetFields()">RESET</button>
+        </div>
+    </div>
+    
+    <script>
+        function decimalToBinary(decimal) {
+            return decimal.toString(2).padStart(8, '0');
+        }
+
+        function binaryToDecimal(binary) {
+            return parseInt(binary, 2);
+        }
+
+        function convert() {
+            let input = document.getElementById("input").value;
+            let conversionType = document.getElementById("conversionType").value;
+            let outputField = document.getElementById("output");
+            
+            if (conversionType === "decimal-binary") {
+                let decimal = parseInt(input);
+                if (isNaN(decimal) || decimal < 0 || decimal > 255) {
+                    alert("Masukkan angka antara 0-255 untuk konversi desimal ke biner.");
+                    return;
+                }
+                outputField.value = decimalToBinary(decimal);
+            } else {
+                if (!/^[01]{8}$/.test(input)) {
+                    alert("Masukkan angka biner 8 digit (hanya 0 dan 1)!");
+                    return;
+                }
+                outputField.value = binaryToDecimal(input);
+            }
+        }
+
+        function resetFields() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").value = "";
+        }
+    </script>
+</body>
+</html>

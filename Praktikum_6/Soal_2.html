@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Perkalian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            margin-top: 10px;
+        }
+        td {
+            border: 1px solid black; 
+            padding: 2px;
+            text-align: center;
+        }
+        .inner-box {
+            display: inline-block;
+            border: 1px solid black; 
+            padding: 10px;
+            min-width: 5px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>Tabel Perkalian</h2>
+    <div id="output"></div>
+
+    <script>
+        let number;
+        
+        do {
+            number = prompt("A number?");
+        } while (isNaN(number) || number.trim() === "" || number === null);
+
+        number = Number(number); 
+
+        let result = "<table>";
+        for (let i = 1; i <= number; i++) {
+            result += `
+                <tr>
+                    <td><span class="inner-box">${i}</span></td>
+                    <td><span class="inner-box">x</span></td>
+                    <td><span class="inner-box">${number}</span></td>
+                    <td><span class="inner-box">=</span></td>
+                    <td><span class="inner-box">${i * number}</span></td>
+                </tr>
+            `;
+        }
+        result += "</table>";
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+
+</body>
+</html>
