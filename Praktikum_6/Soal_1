@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Aritmatika</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        label {
+            width: 120px;
+            text-align: left;
+        }
+        .separator {
+            width: 10px;
+            text-align: center;
+        }
+        input {
+            width: 80px;
+            text-align: left;
+        }
+        button {
+            margin-bottom: 5px;
+            padding: 3px 10px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="input-group">
+        <label>Angka Pertama<span class="separator">&nbsp;: </span></label>
+        <input type="text" id="angka1">
+    </div>
+    <div class="input-group">
+        <label>Angka Kedua <span class="separator">&nbsp;&nbsp;&nbsp;:</span></label>
+        <input type="text" id="angka2">
+    </div>
+    <button onclick="hitung()">Count</button>
+
+    <table>
+        <tr>
+            <td id="nilai1"></td>
+            <td>+</td>
+            <td id="nilai2"></td>
+            <td>=</td>
+            <td id="hasilTambah"></td>
+        </tr>
+        <tr>
+            <td id="nilai3"></td>
+            <td>-</td>
+            <td id="nilai4"></td>
+            <td>=</td>
+            <td id="hasilKurang"></td>
+        </tr>
+    </table>
+
+    <script>
+        function hitung() {
+            let angka1 = document.getElementById("angka1").value;
+            let angka2 = document.getElementById("angka2").value;
+
+            let angka1NaN = isNaN(angka1) || angka1.trim() === "";
+            let angka2NaN = isNaN(angka2) || angka2.trim() === "";
+
+            if (angka1NaN && angka2NaN) {
+                alert("Angka pertama dan kedua harus angka.");
+                return;
+            } else if (angka1NaN) {
+                alert("Angka pertama bukan angka.");
+                return;
+            } else if (angka2NaN) {
+                alert("Angka kedua harus angka.");
+                return;
+            }
+
+            angka1 = parseInt(angka1);
+            angka2 = parseInt(angka2);
+
+            document.getElementById("nilai1").innerHTML = angka1;
+            document.getElementById("nilai2").innerHTML = angka2;
+            document.getElementById("hasilTambah").innerHTML = angka1 + angka2;
+            
+            document.getElementById("nilai3").innerHTML = angka1;
+            document.getElementById("nilai4").innerHTML = angka2;
+            document.getElementById("hasilKurang").innerHTML = angka1 - angka2;
+        }
+    </script>
+
+</body>
+</html>
