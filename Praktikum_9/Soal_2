@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2373039-Jenifer Caudia</title>
+  < <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 25%;
+    }
+
+    th, td {
+      border: 2px solid white;
+      padding: 5px;
+      text-align: left;
+      font-weight: normal;
+    }
+
+    th {
+      background-color: #619463a7;
+      color: black;
+    }
+
+    .baris-ganjil {
+      background-color: #FECBA5;
+    }
+
+    .baris-genap {
+      background-color: #afd3ef;
+    }
+
+    .hover-hijau {
+      background-color: #CCFFAA !important;
+    }
+  </style>
+</head>
+<body>
+
+<table id="tabelBahasa">
+  <tr>
+    <th>Position</th>
+    <th>Programming Language</th>
+    <th>Ratings</th>
+  </tr>
+  <tr class="baris-genap">
+    <td>1</td>
+    <td>C</td>
+    <td>18.058%</td>
+  </tr>
+  <tr class="baris-ganjil">
+    <td>2</td>
+    <td>Java</td>
+    <td>18.051%</td>
+  </tr>
+  <tr class="baris-genap">
+    <td>3</td>
+    <td>C++</td>
+    <td>9.707%</td>
+  </tr>
+  <tr class="baris-ganjil">
+    <td>4</td>
+    <td>PHP</td>
+    <td>9.662%</td>
+  </tr>
+  <tr class="baris-genap">
+    <td>5</td>
+    <td>(Visual) Basic</td>
+    <td>6.392%</td>
+  </tr>
+</table>
+
+<script>
+  const barisTabel = document.querySelectorAll("#tabelBahasa tr");
+
+  barisTabel.forEach((baris, urutan) => {
+    if (urutan === 0) return; 
+
+    const kelasAwal = baris.className;
+
+    baris.addEventListener("mouseover", function () {
+      baris.className = "hover-hijau";
+    });
+
+    baris.addEventListener("mouseout", function () {
+      baris.className = kelasAwal;
+    });
+  });
+</script>
+
+</body>
+</html>
