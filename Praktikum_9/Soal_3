@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2373039-Jenifer Claudia</title>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+     
+    }
+
+    .container {
+      border: 1px solid #333;
+      padding: 10px;
+      width: 20%;
+      background-color: #fff;
+    }
+
+    label {
+      display: inline-block;
+      width: 50px;
+      vertical-align: top;
+      font-size: 18px;
+
+    }
+
+    input[type="number"], input[type="text"] {
+      width: 200px;
+      font-family: "Courier New", monospace;
+      box-sizing: border-box;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .action-row {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .action-row button {
+      font-family: Arial, Helvetica, sans-serif;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .action-row select {
+      font-family: Arial, Helvetica, sans-serif;
+      height: 20px;
+      margin-left: 10px; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-row input-container">
+      <label for="inputData">Data</label>
+      <input type="number" id="inputData">
+    </div>
+
+    <div class="form-row action-row">
+      <button onclick="addData()">Add</button>
+      <select id="operasi" onchange="performOperation()">
+        <option value="">Pilih Operasi</option>
+        <option value="display">Display</option>
+        <option value="count">Count</option>
+        <option value="sum">Sum</option>
+        <option value="average">Average</option>
+        <option value="max">Max</option>
+        <option value="min">Min</option>
+        <option value="ganjil">Ganjil</option>
+        <option value="genap">Genap</option>
+        <option value="hapus">Hapus</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Hasil</label>
+      <input type="text" id="hasil" readonly>
+    </div>
+  </div>
+
+  <script>
+    let dataArray = [];
+
+    function addData() {
+      const input = document.getElementById("inputData");
+      const value = parseInt(input.value);
+
+      if (!isNaN(value)) {
+        dataArray.push(value);
+      }
+
+      input.value = '';
+      input.focus();
+    }
+
+    function performOperation() {
+      const operation = document.getElementById("operasi").value;
+      let result = '';
+
+      switch(operation) {
+        case 'display':
+          result = dataArray.join(', ');
+          break;
+        case 'count':
+          result = dataArray.length;
+          break;
+        case 'sum':
+          result = dataArray.reduce((a, b) => a + b, 0);
+          break;
+        case 'average':
+          result = dataArray.length ? (dataArray.reduce((a, b) => a + b, 0) / dataArray.length).toFixed(2) : 0;
+          break;
+        case 'max':
+          result = dataArray.length ? Math.max(...dataArray) : '';
+          break;
+        case 'min':
+          result = dataArray.length ? Math.min(...dataArray) : '';
+          break;
+        case 'ganjil':
+          result = dataArray.filter(n => n % 2 !== 0).join(', ');
+          break;
+        case 'genap':
+          result = dataArray.filter(n => n % 2 === 0).join(', ');
+          break;
+        case 'hapus':
+          dataArray = [];
+          result = 'Semua data dihapus.';
+          break;
+        default:
+          result = '';
+      }
+
+      document.getElementById("hasil").value = result;
+    }
+  </script>
+
+</body>
+</html>
