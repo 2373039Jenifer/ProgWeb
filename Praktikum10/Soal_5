@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2373039-Jenifer Claudia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 250px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    #searchBox {
+      width: 70%;
+      padding: 3px;
+      margin-bottom: 5px;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    li {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .highlight {
+      color: red;
+    }
+  </style>
+
+  <script src="jQuery.js"></script> 
+</head>
+<body>
+
+  <div class="container">
+    <input type="text" id="searchBox" />
+    <ul id="companyList">
+      <li>Sun Microsystem</li>
+      <li>Apache Software Foundation</li>
+      <li>Oracle Coorporation</li>
+      <li>International Bussiness Machines</li>
+      <li>Microsoft Coorporation</li>
+      <li>Apple Inc</li>
+      <li>Sap Ag</li>
+      <li>Accenture</li>
+      <li>Computer Sciences Coorporation</li>
+      <li>Google</li>
+      <li>Softbank</li>
+      <li>Yahoo</li>
+    </ul>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#searchBox').on('keyup', function () {
+        var input = $(this).val().toLowerCase();
+
+        $('#companyList li').each(function () {
+          var text = $(this).text().toLowerCase();
+          if (text.includes(input) && input !== "") {
+            $(this).addClass('highlight');
+          } else {
+            $(this).removeClass('highlight');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
