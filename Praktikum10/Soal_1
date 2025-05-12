@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2373039-Jenifer Claudia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    ol.menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: white;
+      display: flex;
+    }
+
+    ol.menu > li {
+      position: relative;
+      width: 160px;
+      padding: 5px 0;
+      text-align: left;
+      cursor: default;
+      background-color: deeppink;
+      margin-right: 10px;
+      color: white;
+      text-decoration: underline;
+      font-weight: normal;
+      box-sizing: border-box;
+      padding-left: 5px;
+    }
+
+    ol.menu > li > ol {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 3px solid deeppink;
+      padding: 10px;
+      list-style: none;
+      width: 160px;
+      box-sizing: border-box;
+    }
+
+    ol.menu > li > ol > li {
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    ol.menu > li > ol > li > a {
+      text-decoration: underline;
+      color: black;
+      font-weight: normal;
+      cursor: default;
+    }
+
+    ol.menu > li:hover {
+      background-color: deeppink;
+    }
+  </style>
+
+  <script src="jQuery.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $("ol.menu > li").hover(
+        function () {
+          $(this).find("ol").stop(true, true).slideDown(200);
+        },
+        function () {
+          $(this).find("ol").stop(true, true).slideUp(200);
+        }
+      );
+    });
+  </script>
+</head>
+<body>
+
+  <ol class="menu">
+    <li>jQuery
+      <ol>
+        <li><a href="#">Download</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Blog</a></li>
+      </ol>
+    </li>
+    <li>Community
+      <ol>
+        <li><a href="#">Mailing List</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Demos</a></li>
+        <li><a href="#">Plugins</a></li>
+      </ol>
+    </li>
+    <li>Development
+      <ol>
+        <li><a href="#">Source Code</a></li>
+        <li><a href="#">Bug Tracking</a></li>
+        <li><a href="#">Recent Changes</a></li>
+      </ol>
+    </li>
+  </ol>
+</body>
+</html>
