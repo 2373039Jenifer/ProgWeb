@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2373039-Jenifer Claudia</title>
+  <style>
+    #container {
+      width: 280px;
+      border: 1px solid #aaa;
+      padding: 10px;
+      box-shadow: 2px 2px 5px #ccc;
+    }
+
+    #form {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 4px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="text"]:focus {
+      border: 2px solid orange; 
+      outline: none;
+    }
+
+    #nameList div {
+      margin: 5px 0;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+  </style>
+  <script src="jQuery.js"></script> 
+</head>
+<body>
+  <div id="container">
+    <div id="form">
+      <input type="text" id="nameInput">
+      <button id="addBtn">Add</button>
+      <button id="searchBtn">Search</button>
+    </div>
+    <div id="nameList">
+      <div>John Resig</div>
+      <div>George Martin</div>
+      <div>Malcom John Sinclair</div>
+      <div>J. Ohn</div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#nameList div').each(function () {
+        $(this).data('original', $(this).text());
+      });
+
+      $('#addBtn').click(function () {
+        const name = $('#nameInput').val().trim();
+        if (name !== '') {
+          const $div = $('<div></div>').text(name);
+          $div.data('original', name);
+          $('#nameList').append($div);
+          $('#nameInput').val('');
+        }
+      });
+
+      $('#searchBtn').click(function () {
+        const keyword = $('#nameInput').val().trim().toLowerCase();
+
+        $('#nameList div').each(function () {
+          const originalText = $(this).data('original');
+          $(this).text(originalText); 
+          $(this).removeClass('underline');
+
+          if (keyword && originalText.toLowerCase().includes(keyword)) {
+            $(this).addClass('underline');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
