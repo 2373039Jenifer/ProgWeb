@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2373039-Jenifer Claudia</title>
+  <style>
+    .box {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      border: 2px solid blue;
+      float: left;
+      box-sizing: border-box;
+      background-color: white;
+    }
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    button {
+      display: block;
+      margin-bottom: 3px;
+      padding: 3px 5px;
+      border: 1px solid gray;
+      border-radius: 4px;
+    }
+    
+
+    button:hover {
+      border: 1px solid aqua;
+    }
+
+    .selected {
+      background-color: red !important;
+    }
+  </style>
+  <script src="jQuery.js"></script> 
+</head>
+<body>
+
+  <div class="container">
+    <button id="changeColors">Change colors</button>
+    <div class="clearfix">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".box").click(function () {
+        $(".box").removeClass("selected").css("background-color", "white");
+        $(this).addClass("selected").css("background-color", "red");
+      });
+
+      $("#changeColors").click(function () {
+        $(".box").each(function () {
+          if ($(this).hasClass("selected")) {
+            return false; 
+          }
+          $(this).css("background-color", "yellow");
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
