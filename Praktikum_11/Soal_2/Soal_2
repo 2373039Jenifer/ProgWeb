@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2373039-Jenifer Claudia</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .container-utama {
+            width: 50%;
+            margin: 20px auto;
+            border: 2px solid black;
+            padding: 1px;
+        }
+        .judul-container {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .judul-container a {
+            color: blue;
+            text-decoration: none;
+        }
+        .konten {
+            margin-top: 1px;
+            border: 1px solid black;
+            padding: 1px;
+        }
+        .konten table {
+            width: 100%;
+        }
+        .konten td {
+            padding: 1px;
+            vertical-align: top;
+            font-size: 14px;
+        }
+        .footer-container {
+            margin-top: 1px;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            font-size: 12px;
+        }
+        .form-container {
+            width: 50%;
+            margin: 20px auto;
+            border: 2px solid black;
+            padding: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        .form-input-box {
+            border: 1px solid rgb(0, 0, 0);
+            padding: 1px;
+            margin-bottom: 15px;
+        }
+        .form-input-box input {
+            display: block;
+            margin-bottom: 1px;
+            width: 100%;
+            padding: 1px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            padding: 3px 5px;
+        }
+        .button-kembali {
+            width: 50%;
+            margin: 10px auto 0 auto;
+            text-align: left;
+        }
+        .button-kembali button {
+            padding: 3px 5px;
+        }
+    </style>
+    <script src="jquery.js"></script>
+</head>
+<body>
+
+    <div class="form-container" id="formInput">
+        <div class="form-input-box">
+            <input type="text" id="title" placeholder="Title" readonly>
+            <input type="text" id="content" placeholder="Content" readonly>
+            <input type="text" id="generator" placeholder="Generator" readonly>
+        </div>
+        <button onclick="tampil()">Look</button>
+    </div>
+
+    <div id="hasil"></div>
+
+    <div class="button-kembali" id="btnBack" style="display:none;">
+        <button onclick="kembali()">Look</button>
+    </div>
+
+    <script>
+        let data;
+
+        function tampil() {
+            $.getJSON("SIJson.txt", function(response) {
+                data = response;
+
+                document.getElementById("title").value = data.title;
+                document.getElementById("content").value = data.items[0].description;
+                document.getElementById("generator").value = data.generator;
+
+                document.getElementById("formInput").style.display = "none";
+                document.getElementById("btnBack").style.display = "flex";
+
+                let output = `
+                <div class="container-utama">
+                    <div class="judul-container">
+                        <a href="${data.link}" target="_blank">${data.title}</a>
+                    </div>
+
+                    <div class="konten">
+                        <table>`;
+
+                data.items.forEach(item => {
+                    output += `
+                    <tr>
+                        <td>
+                            <a href="${item.link}" target="_blank">${item.title}</a><br/>
+                            By : ${item.author} / <i>${item.published}</i><br/><br/>
+                            ${item.description}<br/><br/>
+                            Universitas : <a href="${item.universitas.m}" target="_blank">Click Here</a><br/>
+                            Tag(s) : ${item.tags}<br/>
+                        </td>
+                    </tr>`;
+                });
+
+                output += `
+                        </table>
+                    </div>
+
+                    <div class="footer-container">©${data.generator}</div>
+                </div>`;
+
+                document.getElementById("hasil").innerHTML = output;
+            }).fail(function() {
+                alert("Gagal memuat file SIJson.txt. Pastikan file tersedia dan isinya valid JSON.");
+            });
+        }
+
+        function kembali() {
+            document.getElementById("formInput").style.display = "block";
+            document.getElementById("hasil").innerHTML = "";
+            document.getElementById("btnBack").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
