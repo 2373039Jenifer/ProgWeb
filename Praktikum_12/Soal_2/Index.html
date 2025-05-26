@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2373038-Jenifer Claudia</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+        }
+        .header {
+            background-color: #000080;
+            color: white;
+            text-align: center;
+            font-size: 48px;
+            padding: 10px;
+        }
+        .login-container {
+            width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+            vertical-align: top;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 5px 15px;
+        }
+        .footer {
+            margin-top: 15px;
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+        }
+        hr {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Login</div>
+
+    <div class="login-container">
+        <form action="prosesLogin.php" method="post">
+            <label>Username</label>
+            <input type="text" name="username"><br>
+
+            <label>Password</label>
+            <input type="password" name="password"><br>
+
+            <label></label>
+            <input type="submit" value="login">
+        </form>
+        <hr>
+        <div class="footer">
+            @UKM2014<br>
+            Name-NRP©
+        </div>
+    </div>
+
+</body>
+</html>
